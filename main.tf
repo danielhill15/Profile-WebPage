@@ -2,9 +2,9 @@ variable "aws_region" {
   default     = "us-east-1"
 }
 
-variable "aws_access_key" {}
+#variable "aws_access_key" {}
 
-variable "aws_secret_key" {}
+#variable "aws_secret_key" {}
 
 variable "domain" {
   default = "daniel-barak-hill.io"
@@ -12,8 +12,8 @@ variable "domain" {
 
 provider "aws" {
   region = var.aws_region       # default us-east-1
-  access_key=var.aws_access_key
-  secret_key=var.aws_secret_key
+  # access_key=var.aws_access_key
+  # secret_key=var.aws_secret_key
 }
 
 # Note: The bucket name needs to carry the same name as the domain!
