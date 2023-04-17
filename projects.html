@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+
+   <!--- Basic Page Needs
+   ================================================== -->
+   <meta charset="utf-8">
+   <title>Daniel Barak Hill Projects</title>
+   <meta name="description" content="">
+   <meta name="author" content="">
+
+   <!-- Mobile Specific Metas
+   ================================================== -->
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+   <!-- CSS
+    ================================================== -->
+   <link rel="stylesheet" href="css/default.css">
+   <link rel="stylesheet" href="css/layout.css">
+   <link rel="stylesheet" href="css/media-queries.css">
+   <link rel="stylesheet" href="css/magnific-popup.css">
+
+   <!-- Script
+   ================================================== -->
+   <script src="js/modernizr.js"></script>
+   <script src="main.js"></script>
+
+   <!-- Favicons
+	================================================== -->
+   <link rel="shortcut icon" href="favicon.png">
+
+   <style>
+      .libutton {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         padding: 7px;
+         text-align: center;
+         outline: none;
+         text-decoration: none !important;
+         color: #ffffff !important;
+         width: 200px;
+         height: 32px;
+         border-radius: 16px;
+         background-color: #0A66C2;
+         font-family: "SF Pro Text", Helvetica, sans-serif;
+      }
+   </style>
+
+<script type='text/javascript'>
+    window.onload = function() {
+      // find DOM elements
+      var latField = document.getElementById('lat');
+      var lngField = document.getElementById('long');
+      var form = document.getElementById('addressForm');
+      var addressField = form.address;
+    
+      form.onsubmit = function() {
+        return showAddressOnMap(addressField.value);
+      }
+      
+      function showAddressOnMap(address) {
+        try{
+            try {
+                fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=23621%20Cornerstone%20Lane%20Damascus%20ON&key=AIzaSyDhAbQxZSo0OfhiwYbJ529kS3r1MILW5pM`)
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log(data);
+                        const lat = data.results[0].geometry.location.lat;
+                        const lng = data.results[0].geometry.location.lng;
+                        const imageUrl = "https://api.nasa.gov/planetary/earth/imagery?lon=" + lng + "&lat=" + lat + "&date=2018-01-01&dim=0.15&api_key=o2MO9B3QaMNEwXQB5CYb6sI5L1VH176BFMRR63Td";
+                        console.log('URL ' + imageUrl);
+                        latField.value = lat;
+                        lngField.value = lng;
+                        fetch(imageUrl).then((result) => result.blob())
+                        .then((nasadata) => {
+                            console.log('NASA ' + nasadata);
+                            document.getElementById("myimage").src = URL.createObjectURL(nasadata);
+                        });
+                });
+            } catch {
+                console.log('Failed to retrieve data');
+                const lng = "-00.6938643";
+                const lat = "00.4444068";
+            }
+          return false;
+        }
+        catch(e){
+          return false;
+        }
+      }
+    };
+    </script>
+
+</head>
+
+<body>
+
+   <!-- Header
+   ================================================== -->
+   <header id="home_projects">
+   </header>
+
+   <form id="addressForm" action="/">
+    <div>
+      <label for="address">Address:</label>
+      <input type="text" name="address" id="address" />
+<input type="submit" id="addressButton" value="Get Satellite Image" /><br>
+	
+			
+    </div>
+  </form>
+
+  <input type="text" name="lat" id="lat" />
+  <input type="text" name="long" id="long" />
+
+    <p id="demo"></p>
+
+    <img id="myimage" style="width:1000px;height:1000px;"/>
+
+    <!-- Java Script
+//    ================================================== -->
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+   <script src="js/jquery.flexslider.js"></script>
+   <script src="js/waypoints.js"></script>
+   <script src="js/jquery.fittext.js"></script>
+   <script src="js/magnific-popup.js"></script>
+   <script src="js/init.js"></script>
+
+</body>
+
+</html>
