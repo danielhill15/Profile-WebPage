@@ -28,7 +28,7 @@
    <!-- Script
    ================================================== -->
    <script src="js/modernizr.js"></script>
-   <script src="main.js"></script>
+   <!-- <script src="main.js"></script> -->
 
    <!-- Favicons
 	================================================== -->
@@ -75,15 +75,17 @@
 
       <div class="row banner">
          <div class="banner-text">
-            <h1 class="responsive-hegit checadline">Hi, I'm Daniel</h1>
+            
+            <h1 class="responsive-hegit checadline" style="color: #ffffff">Hi, I'm Daniel</h1>
 
-            <p>DevOps Engineer</p>
+            <h2 style="color: #FFD700">Software Engineer in DevOps</h3>
+            
             <ul class="social">
                <li><a href="https://www.linkedin.com/in/daniel-hill-76795a46/"><i class="fa fa-linkedin"></i></a></li>
                <li><a href="https://github.com/danielhill15"><i class="fa fa-github"></i></a></li>
                </li>
             </ul>
-            <p id="visitor_counter" style="font-size: large">Visitor counter - 0</p>
+            <p id="visitor_counter" style="font-size: large"></p>
          </div>
       </div>
 
@@ -110,8 +112,9 @@
 
             <h2>ABOUT ME</h2>
 
-            <p> Hi, I'm Daniel Barak Hill, <span>Software Developer (DevOps) at <a
-                     href="https://www.kbr.com/en">KBR</a></span>
+            <p> I'm Daniel Barak Hill, <span>Software Developer at <a
+                     href="https://www.kbr.com/en">KBR</a></span> working as a contractor for <span>NASA <a
+                        href="https://www.nasa.gov/press-release/nasa-awards-earth-science-data-and-information-system-contract">EED3</a> contract</span>
 
             <div class="columns download">
                <a class="libutton"
@@ -197,7 +200,7 @@
 
                   <h3>KBR Contractor for NASA Project</h3>
                   <p class="info">Associate Software Developer <span>&bull;</span> <em class="date">Oct
-                        2021 - Now</em></p>
+                        2020 - Now</em></p>
 
                   <p>
                      <li>DevOps contractor for NASA cloud development contract</li>
@@ -247,6 +250,28 @@
 
             </div>
 
+            <div>
+
+            </div>
+
+            <div class="row item">
+      
+               <div>
+                  <h1 style="text-align:center"><span>Astronomy Picture of the Day</span></h1>
+               </div>
+
+               <div>
+
+               </div>
+
+               <div>
+
+                  <img id="nasa-potd" src="potd.jpg" style="width:500px;height:500px;"/>
+
+               </div>
+
+            </div>
+
          </div> <!-- main-col end -->
 
       </div> <!-- End Work -->
@@ -286,9 +311,10 @@
 
    </footer> <!-- Footer End-->
 
-   <!-- Java Script
-   ================================================== -->
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <button onclick = "window.location.href='projects.html';">Projects</button>
+
+    <!-- Java Script
+//    ================================================== -->
    <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
    <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
    <script src="js/jquery.flexslider.js"></script>
@@ -296,13 +322,6 @@
    <script src="js/jquery.fittext.js"></script>
    <script src="js/magnific-popup.js"></script>
    <script src="js/init.js"></script>
-   <script>
-      fetch('https://3jtou20keh.execute-api.us-east-1.amazonaws.com/prod')
-         .then(response => response.json())
-         .then((data) => {
-            document.getElementById('visitor_counter').innerText = data.Count
-         })
-   </script>
 
 </body>
 
