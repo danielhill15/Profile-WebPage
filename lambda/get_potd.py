@@ -7,7 +7,7 @@ s3 = boto3.resource('s3')
 def lambda_handler(event, context):
     
     result = "Successfully stored image"
-    api = "https://api.nasa.gov/planetary/apod?api_key=o2MO9B3QaMNEwXQB5CYb6sI5L1VH176BFMRR63Td"
+    api = "https://api.nasa.gov/planetary/apod?api_key=XXXXXXXXXXXXXXXXXXXXXXXXXXX"
     http = urllib3.PoolManager()
     response = http.request('GET',api)
     nasa_potd = json.loads(response.data.decode('utf-8'))
